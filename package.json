@@ -1,12 +1,35 @@
 {
   "name": "node-express-postgres-boilerplate",
   "version": "0.0.1",
-  "description": "Node, Express and Postgress Boilerplate with best practices based on latest trends / technologies",
+  "description": "Node, Express and Postgres Boilerplate with best practices based on latest trends / technologies",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch"
   },
+  "keywords": [
+    "node",
+    "node.js",
+    "boilerplate",
+    "generator",
+    "express",
+    "express.js",
+    "sql",
+    "rest",
+    "api",
+    "postgres",
+    "postgresql",
+    "sequelize",
+    "es6",
+    "es7",
+    "es8",
+    "es9",
+    "jest",
+    "docker",
+    "joi",
+    "eslint",
+    "prettier"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/micchyboy237/node-express-postgres-boilerplate.git"
