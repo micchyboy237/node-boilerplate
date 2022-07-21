@@ -7,6 +7,10 @@ const app = express();
 
 app.use('/', routes);
 
+app.all('*', (req, res) => {
+  res.redirect('/contacts');
+});
+
 app.listen(config.port, () => {
   logger.info(`Listening to port ${config.port}`);
 });

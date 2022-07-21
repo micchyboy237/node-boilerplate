@@ -2,8 +2,13 @@ const httpStatus = require('http-status');
 const {Contact} = require('../models');
 const ApiError = require('../errors/ApiError');
 
-const queryContacts = async (filter, options) => {
-  const contacts = await Contact.paginate(filter, options);
+const queryContacts = async () => {
+  // const contacts = await Contact.paginate(filter, options);
+  const contacts = await Contact.findAll({
+    // order: [order || ['date', 'DESC']],
+    limit: 10,
+  });
+
   return contacts;
 };
 

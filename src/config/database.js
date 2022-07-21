@@ -13,14 +13,7 @@ const initialConfig = {
 module.exports = {
   development: {
     ...initialConfig,
-    dialectOptions: {
-      keepAlive: true,
-      ssl: {
-        rejectUnauthorized: false,
-        require: true,
-      },
-    },
-    ssl: true,
+    dialectOptions: {},
   },
   production: {
     ...initialConfig,
