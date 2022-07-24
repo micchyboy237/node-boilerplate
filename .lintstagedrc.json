@@ -1,3 +1,7 @@
 {
-  "*.js": "eslint"
+  "!(*worker).{js,jsx,ts,tsx,md}": [
+    "eslint --cache --fix",
+    "jest --bail --findRelatedTests",
+    "prettier --write"
+  ]
 }
