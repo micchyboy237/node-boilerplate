@@ -16,12 +16,7 @@ const getContactById = async (id) => Contact.findById(id);
 
 const getContactByEmail = async (email) => Contact.findOne({email});
 
-const createContact = async (contactBody) => {
-  if (await Contact.isEmailTaken(contactBody.email)) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
-  }
-  return Contact.create(contactBody);
-};
+const createContact = async (contactBody) => Contact.create(contactBody);
 
 const updateContactById = async (contactId, updateBody) => {
   const contact = await getContactById(contactId);
