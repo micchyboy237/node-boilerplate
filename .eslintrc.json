@@ -13,6 +13,7 @@
     "func-names": "off",
     "no-underscore-dangle": "off",
     "consistent-return": "off",
-    "jest/expect-expect": "off"
+    "jest/expect-expect": "off",
+    "import/prefer-default-export": "off"
   }
 }
