@@ -20,17 +20,22 @@ const createContact = async (contactBody) => Contact.create(contactBody);
 
 const updateContactById = async (contactId, updateBody) => {
   const contact = await getContactById(contactId);
+
   if (!contact) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Contact not found');
   }
+
   if (
     updateBody.email &&
     (await Contact.isEmailTaken(updateBody.email, contactId))
   ) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }
+
   Object.assign(contact, updateBody);
+
   await contact.save();
+
   return contact;
 };
 
