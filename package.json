@@ -44,6 +44,7 @@
   },
   "homepage": "https://github.com/micchyboy237/node-express-postgres-boilerplate#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "http-status": "^1.5.2",

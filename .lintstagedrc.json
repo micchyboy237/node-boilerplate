@@ -1,7 +1,7 @@
 {
   "!(*worker).{js,jsx,ts,tsx,md}": [
     "eslint --cache --fix",
-    "jest --bail --findRelatedTests",
-    "prettier --write"
+    "prettier --write",
+    "jest --bail --findRelatedTests --passWithNoTests"
   ]
 }
