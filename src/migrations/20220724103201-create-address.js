@@ -1,20 +1,36 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Cities', {
+    await queryInterface.createTable('addresses', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      type: {
+        type: Sequelize.STRING,
+      },
+      line1: {
+        type: Sequelize.STRING,
+      },
+      line2: {
+        type: Sequelize.STRING,
+      },
       city: {
         type: Sequelize.STRING,
       },
-      postalCode: {
+      state: {
         type: Sequelize.STRING,
       },
-      country: {
+      zip: {
         type: Sequelize.STRING,
+      },
+      ContactId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'contacts',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -27,6 +43,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Cities');
+    await queryInterface.dropTable('addresses');
   },
 };

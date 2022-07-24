@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const initialConfig = {
   define: {
-    underscored: true,
+    underscored: false,
   },
   dialect: 'postgres',
   migrationStoragePath: 'sequelize',

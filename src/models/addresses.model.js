@@ -2,6 +2,7 @@ const {Model} = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Address extends Model {}
+
   Address.init(
     {
       type: DataTypes.STRING,
@@ -10,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       city: DataTypes.STRING,
       state: DataTypes.STRING,
       zip: DataTypes.STRING,
+      ContactId: DataTypes.INTEGER,
     },
     {
       sequelize,
@@ -17,5 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'addresses',
     },
   );
+
   return Address;
 };

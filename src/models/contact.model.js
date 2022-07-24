@@ -1,8 +1,11 @@
 const {Model} = require('sequelize');
-const {Address} = require('.');
 
 module.exports = (sequelize, DataTypes) => {
-  class Contact extends Model {}
+  class Contact extends Model {
+    static associate(models) {
+      Contact.Address = Contact.hasOne(models.Address);
+    }
+  }
 
   Contact.init(
     {
@@ -17,8 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'contacts',
     },
   );
-
-  Contact.Address = Contact.hasOne(Address);
 
   return Contact;
 };
