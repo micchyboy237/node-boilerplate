@@ -3,7 +3,7 @@ const logger = require('../src/config/logger');
 
 async function createContacts() {
   const AddressAssoc = Contact.belongsTo(Address, {
-    as: 'address',
+    as: 'addressObj',
     foreignKey: 'addressId',
   });
 
@@ -14,7 +14,7 @@ async function createContacts() {
       lastName: 'Broadstone',
       email: 'mick.broadstone@gmail.com',
       phone: '07715101234',
-      address: {
+      addressObj: {
         type: 'home',
         line1: '100 Main St.',
         city: 'Austin',
