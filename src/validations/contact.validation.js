@@ -21,13 +21,13 @@ const getContacts = {
 
 const getContact = {
   params: Joi.object().keys({
-    userId: Joi.string().custom(objectId),
+    contactId: Joi.string().custom(objectId),
   }),
 };
 
 const updateUser = {
   params: Joi.object().keys({
-    userId: Joi.required().custom(objectId),
+    contactId: Joi.required().custom(objectId),
   }),
   body: Joi.object()
     .keys({
@@ -41,7 +41,7 @@ const updateUser = {
 
 const deleteUser = {
   params: Joi.object().keys({
-    userId: Joi.string().custom(objectId),
+    contactId: Joi.string().custom(objectId),
   }),
 };
 

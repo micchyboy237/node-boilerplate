@@ -20,6 +20,13 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
+      addressId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'addresses',
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

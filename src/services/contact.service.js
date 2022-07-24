@@ -12,7 +12,7 @@ const getContacts = async () => {
   return contacts;
 };
 
-const getContactById = async (id) => Contact.findById(id);
+const getContactById = async (id) => Contact.findByPk(id);
 
 const getContactByEmail = async (email) => Contact.findOne({email});
 

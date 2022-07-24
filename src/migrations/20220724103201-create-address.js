@@ -25,13 +25,6 @@ module.exports = {
       zip: {
         type: Sequelize.STRING,
       },
-      ContactId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'contacts',
-          key: 'id',
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

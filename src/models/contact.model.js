@@ -3,7 +3,10 @@ const {Model} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Contact extends Model {
     static associate(models) {
-      Contact.Address = Contact.hasOne(models.Address);
+      Contact.Address = Contact.belongsTo(models.Address, {
+        as: 'Address',
+        foreignKey: 'addressId',
+      });
     }
   }
 
@@ -13,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
       phone: DataTypes.STRING,
+      addressId: DataTypes.INTEGER,
     },
     {
       sequelize,
