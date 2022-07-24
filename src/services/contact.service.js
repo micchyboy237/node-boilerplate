@@ -1,10 +1,14 @@
 const httpStatus = require('http-status');
-const {Contact} = require('../models');
+const {Contact, Address} = require('../models');
 const ApiError = require('../errors/ApiError');
 
 const getContacts = async () => {
   // const contacts = await Contact.paginate(filter, options);
   const contacts = await Contact.findAll({
+    include: {
+      model: Address,
+      as: 'address',
+    },
     // order: [order || ['date', 'DESC']],
     limit: 10,
   });
@@ -12,11 +16,18 @@ const getContacts = async () => {
   return contacts;
 };
 
-const getContactById = async (id) => Contact.findByPk(id);
+const getContactById = (id) =>
+  Contact.findOne({
+    include: {
+      model: Address,
+      as: 'address',
+    },
+    where: {id},
+  });
 
-const getContactByEmail = async (email) => Contact.findOne({email});
+const getContactByEmail = (email) => Contact.findOne({email});
 
-const createContact = async (contactBody) => Contact.create(contactBody);
+const createContact = (contactBody) => Contact.create(contactBody);
 
 const updateContactById = async (contactId, updateBody) => {
   const contact = await getContactById(contactId);
