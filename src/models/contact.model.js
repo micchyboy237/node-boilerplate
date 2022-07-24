@@ -1,21 +1,24 @@
+const {Model} = require('sequelize');
+const {Address} = require('.');
+
 module.exports = (sequelize, DataTypes) => {
-  const contact = sequelize.define(
-    'Contact',
+  class Contact extends Model {}
+
+  Contact.init(
     {
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       email: DataTypes.STRING,
       phone: DataTypes.STRING,
-      address: DataTypes.STRING,
-      city: DataTypes.STRING,
-      postalCode: DataTypes.STRING,
-      country: DataTypes.STRING,
     },
     {
-      underscored: false,
+      sequelize,
+      modelName: 'Contact',
       tableName: 'contacts',
     },
   );
 
-  return contact;
+  Contact.Address = Contact.hasOne(Address);
+
+  return Contact;
 };

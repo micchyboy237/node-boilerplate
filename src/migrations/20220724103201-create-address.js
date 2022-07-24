@@ -1,26 +1,19 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Contacts', {
+    await queryInterface.createTable('Cities', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      firstName: {
+      city: {
         type: Sequelize.STRING,
       },
-      lastName: {
+      postalCode: {
         type: Sequelize.STRING,
       },
-      email: {
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      phone: {
-        type: Sequelize.STRING,
-      },
-      address: {
+      country: {
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -34,6 +27,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Contacts');
+    await queryInterface.dropTable('Cities');
   },
 };
