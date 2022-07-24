@@ -7,7 +7,7 @@ const {contactService} = require('../services');
 const getContacts = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'role']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await contactService.queryContacts(filter, options);
+  const result = await contactService.getContacts(filter, options);
   res.send(result);
 });
 
